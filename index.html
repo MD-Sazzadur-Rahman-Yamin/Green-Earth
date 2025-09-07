@@ -114,13 +114,13 @@
           </div>
         </div>
       </section>
-      <section class="bg-[#CFF0DC] mt-8  py-16">
-        <h2
-          class="text-center text-[#1F2937] font-semibold text-3xl pb-10"
-        >
+      <section class="bg-[#CFF0DC] mt-8 py-16">
+        <h2 class="text-center text-[#1F2937] font-semibold text-3xl pb-10">
           Our Impact
         </h2>
-        <div class="flex items-center justify-around gap-12 flex-col md:flex-row">
+        <div
+          class="flex items-center justify-around gap-12 flex-col md:flex-row"
+        >
           <div class="bg-white p-10 rounded-xl flex items-center flex-col">
             <h5 class="text-[#15803D] font-semibold text-2xl">500K+</h5>
             <p class="text-[#1F2937]">Trees Planted</p>
@@ -136,5 +136,35 @@
         </div>
       </section>
     </main>
+    <footer>
+      <section class="bg-[#166534] py-24">
+        <h2
+          class="text-center text-white font-semibold text-3xl pb-10"
+        >
+          Plant a Tree Today
+        </h2>
+        <form class="flex justify-center items-center flex-col gap-3 bg-[#15803d] max-w-[650px] mx-auto p-10 rounded-xl">
+          <input type="text" placeholder="Your Name" class="input w-full" />
+          <input type="email" placeholder="Your Email Address" class="input w-full" />
+          <input
+            type="text"
+            class="input w-full"
+            placeholder="Number of Trees"
+            list="browsers"
+          />
+          <datalist id="browsers">
+            <option value="1"></option>
+            <option value="10"></option>
+            <option value="100"></option>
+            <option value="1000"></option>
+            <option value="10000"></option>
+          </datalist>
+          <button class="btn w-full bg-[#FACC15] rounded-full">Donate Now</button>
+        </form>
+      </section>
+      <section class="bg-[#14532D]">
+        <h6 class="text-center text-white py-6">© 2025 Green Earth. All Rights Reserved.</h6>
+      </section>
+    </footer>
   </body>
 </html>
