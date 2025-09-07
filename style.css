@@ -1,0 +1,9 @@
+* {
+  font-family: "Inter", sans-serif;
+}
+#hero {
+  background-image: url("/images/hero-leaf1.png"), url("/images/hero-leaf2.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left bottom, right bottom;
+  background-size: 200px auto, 200px auto;
+}
