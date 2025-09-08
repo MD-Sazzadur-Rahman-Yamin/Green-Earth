@@ -81,11 +81,26 @@
           Join our mission to plant 1 million trees and make the Earth greener
           for future generations.
         </p>
-        <button
-          class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl bg-[#FACC15] text-[#15803D] rounded-full"
-        >
+        <button class="btn btn-xl bg-[#FACC15] text-[#15803D] rounded-full">
           Default
         </button>
+      </section>
+      <section id="shop-section-container">
+        <h2
+          class="text-center text-[#1F2937] font-semibold text-3xl pt-24 pb-10"
+        >
+          Choose Your Trees
+        </h2>
+        <div id="shop-section" class="max-w-screen-2xl mx-auto">
+          <div id="category-container">
+            <h3 class="font-semibold text-xl">Categories</h3>
+            <div id="categories">
+              <!-- <button class="btn w-full text-left bg-transparent text-[#1F2937] hover:bg-[#15803D] hover:text-white">All Trees</button> -->
+            </div>
+          </div>
+          <div id="shop-card-container" class="grid grid-cols-3 gap-4"></div>
+          <div></div>
+        </div>
       </section>
       <section id="about-campaign">
         <h2
@@ -138,14 +153,18 @@
     </main>
     <footer>
       <section class="bg-[#166534] py-24">
-        <h2
-          class="text-center text-white font-semibold text-3xl pb-10"
-        >
+        <h2 class="text-center text-white font-semibold text-3xl pb-10">
           Plant a Tree Today
         </h2>
-        <form class="flex justify-center items-center flex-col gap-3 bg-[#15803d] max-w-[650px] mx-auto p-10 rounded-xl">
+        <form
+          class="flex justify-center items-center flex-col gap-3 bg-[#15803d] max-w-[650px] mx-auto p-10 rounded-xl"
+        >
           <input type="text" placeholder="Your Name" class="input w-full" />
-          <input type="email" placeholder="Your Email Address" class="input w-full" />
+          <input
+            type="email"
+            placeholder="Your Email Address"
+            class="input w-full"
+          />
           <input
             type="text"
             class="input w-full"
@@ -159,12 +178,34 @@
             <option value="1000"></option>
             <option value="10000"></option>
           </datalist>
-          <button class="btn w-full bg-[#FACC15] rounded-full">Donate Now</button>
+          <button class="btn w-full bg-[#FACC15] rounded-full">
+            Donate Now
+          </button>
         </form>
       </section>
       <section class="bg-[#14532D]">
-        <h6 class="text-center text-white py-6">© 2025 Green Earth. All Rights Reserved.</h6>
+        <h6 class="text-center text-white py-6">
+          © 2025 Green Earth. All Rights Reserved.
+        </h6>
       </section>
     </footer>
+    <section>
+      <!-- Open the modal using ID.showModal() method -->
+      <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+      <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+          <div id="modal-container">
+            
+          </div>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+    </section>
+    <script src="./script.js"></script>
   </body>
 </html>

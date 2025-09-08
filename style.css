@@ -1,9 +1,26 @@
 * {
   font-family: "Inter", sans-serif;
 }
+
+body{
+  background-color: #f0fdf4;
+}
+
 #hero {
   background-image: url("/images/hero-leaf1.png"), url("/images/hero-leaf2.png");
   background-repeat: no-repeat, no-repeat;
   background-position: left bottom, right bottom;
   background-size: 200px auto, 200px auto;
+}
+
+/* Shop section */
+#shop-section {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 1rem;
+}
+
+.active-category-btn{
+  background-color: #15803D;
+  color: white;
 }
