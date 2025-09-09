@@ -70,20 +70,24 @@
       </div>
     </header>
     <main>
-      <section
-        id="hero"
-        class="text-center py-[6.25rem] space-y-3 bg-[#CFF0DC]"
-      >
-        <h1 class="font-bold text-[3rem] text-[#1F2937]">
-          Plant a Tree, Grow a Future
-        </h1>
-        <p class="text-[#1F2937]">
-          Join our mission to plant 1 million trees and make the Earth greener
-          for future generations.
-        </p>
-        <button class="btn btn-xl bg-[#FACC15] text-[#15803D] rounded-full">
-          Get Involved
-        </button>
+      <section id="hero" class="bg-[#CFF0DC] flex justify-center items-center">
+        <!-- text-center py-[6.25rem] space-y-3 -->
+        <div class="hidden xl:block"><img src="./assets/hero-leaf1.png" alt="" /></div>
+        <div
+          class="space-y-3 flex justify-center items-start flex-col text-center py-[6rem] xl:py-[0rem]"
+        >
+          <h1 class="font-bold text-[3rem] text-[#1F2937]">
+            Plant a Tree, Grow a Future
+          </h1>
+          <p class="text-[#1F2937]">
+            Join our mission to plant 1 million trees and make the Earth greener
+            for future generations.
+          </p>
+          <button class="btn btn-xl bg-[#FACC15] text-[#15803D] m-auto rounded-full">
+            Get Involved
+          </button>
+        </div>
+        <div class="hidden xl:block"><img class="w-full" src="./assets/hero-leaf2.png" alt="" /></div>
       </section>
       <section id="shop-section-container">
         <h2
@@ -91,7 +95,10 @@
         >
           Choose Your Trees
         </h2>
-        <div id="shop-section" class="max-w-screen-2xl mx-auto grid lg:grid-cols-[1fr_3fr_1fr] lg:grid gap-4">
+        <div
+          id="shop-section"
+          class="max-w-screen-2xl mx-auto grid lg:grid-cols-[1fr_3fr_1fr] lg:grid gap-4"
+        >
           <div id="category-container">
             <h3 class="font-semibold text-xl text-center">Categories</h3>
             <div id="categories"></div>
@@ -102,7 +109,7 @@
           >
             <span class="loading loading-spinner loading-xl"></span>
           </div>
-          <div id="shop-card-container" class="grid grid-cols-3 gap-4"></div>
+          <div id="shop-card-container" class="grid grid-cols-2 sm:grid-cols-3 gap-4"></div>
           <div id="cart-container" class="bg-white rounded-xl p-4">
             <h3 class="font-semibold text-xl">Your Cart</h3>
             <div id="cart-items"></div>
