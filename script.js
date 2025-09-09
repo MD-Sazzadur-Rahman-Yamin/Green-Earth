@@ -57,7 +57,7 @@ const activeBtn = (id) => {
 // display APIs
 
 const displayCategory = (categories) => {
-  console.log(categories)
+  // console.log(categories)
   const categoryContainer = document.getElementById("categories");
   // categoryContainer.innerHTML = "";
   for (let category of categories) {
@@ -155,12 +155,14 @@ const shopCardContainer = document.getElementById("shop-card-container").addEven
   // console.log(e.target.innerText)
   if (e.target.innerText == "Add to Cart") {
     // console.log("BTN clicked")
-    // console.log(e.target.parentNode.parentNode.children[0].id)
+    // console.log(e.target.parentNode.parentNode.children[2].children[1].innerText);
     const treeName = e.target.parentNode.parentNode.children[0].innerText;
     const id = e.target.parentNode.parentNode.children[0].id;
+    const price = e.target.parentNode.parentNode.children[2].children[1].innerText;
     myCart.push({
       treeName: treeName,
-      id : id
+      id : id,
+      price : price
     })
     displayCartItems(myCart);
   }
@@ -175,13 +177,22 @@ const displayCartItems = (myCart) => {
               >
                 <div>
                   <h6 class="font-semibold">${myCart.treeName}</h6>
-                  <p class="text-[#1F2937]">৳500 x 1</p>
+                  <p class="text-[#1F2937]">৳${myCart.price} x 1</p>
                 </div>
-                <img class="size-4" src="./assets/delete.svg" alt="delete" />
+                <img onClick="deleteFromCart(${myCart.id})" class="size-4" src="./assets/delete.svg" alt="delete" />
               </div>
         `;
       })
 };
+
+const deleteFromCart = (itemsID) =>{
+  console.log(myCart)
+  const filteredMyCart = myCart.filter((items) => items.id !== String(itemsID));
+  myCart = filteredMyCart;
+  displayCartItems(myCart)
+  console.log(myCart)
+
+}
 // display Modal
 
 const openModal = (detail) => {
