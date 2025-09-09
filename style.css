@@ -14,11 +14,11 @@ body{
 }
 
 /* Shop section */
-#shop-section {
+/* #shop-section {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   gap: 1rem;
-}
+} */
 
 .active-category-btn{
   background-color: #15803D;
