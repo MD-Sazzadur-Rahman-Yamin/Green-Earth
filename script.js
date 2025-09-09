@@ -189,6 +189,7 @@ const displayCartItems = (myCart) => {
               </div>
         `;
   });
+  totalPriceCalculator(myCart);
 };
 
 const deleteFromCart = (itemsID) => {
