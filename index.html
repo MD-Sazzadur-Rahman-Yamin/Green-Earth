@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <header>
+    <header class="sticky top-0 z-50">
       <div class="navbar bg-base-100 shadow-sm bg-[#15803D]">
         <div class="navbar-start">
           <div class="dropdown">
@@ -82,7 +82,7 @@
           for future generations.
         </p>
         <button class="btn btn-xl bg-[#FACC15] text-[#15803D] rounded-full">
-          Default
+          Get Involved
         </button>
       </section>
       <section id="shop-section-container">
@@ -103,7 +103,17 @@
             <span class="loading loading-spinner loading-xl"></span>
           </div>
           <div id="shop-card-container" class="grid grid-cols-3 gap-4"></div>
-          <div></div>
+          <div id="cart-container" class="bg-white rounded-xl p-4">
+            <h3 class="font-semibold text-xl">Your Cart</h3>
+            <div id="cart-items">
+              
+            </div>
+            <hr />
+            <div class="flex justify-between mt-1">
+              <p>Total:</p>
+              <p>৳1000</p>
+            </div>
+          </div>
         </div>
       </section>
       <section id="about-campaign">

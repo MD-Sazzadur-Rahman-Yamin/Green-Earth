@@ -1,3 +1,4 @@
+//Loading spiner
 const manageLoadingSpiner = (status) => {
   if (status == true) {
     document.getElementById("loading-spiner").classList.remove("hidden");
@@ -7,6 +8,8 @@ const manageLoadingSpiner = (status) => {
     document.getElementById("shop-card-container").classList.remove("hidden");
   }
 };
+
+// load APIs
 
 const loadCategory = () => {
   const url = "https://openapi.programming-hero.com/api/categories";
@@ -38,17 +41,23 @@ const loadPlantsDetail = (id) => {
     .then((data) => openModal(data.plants));
 };
 
-// const removeActive = () => {
-//   const activedBtns = document.querySelectorAll(".actived-btn");
-//   activedBtns.forEach((btn) => btn.classList.remove("active-category-btn"));
-// };
+// active btn
+
+const removeActive = () => {
+  const activedBtns = document.querySelectorAll(".actived-btn");
+  activedBtns.forEach((btn) => btn.classList.remove("active-category-btn"));
+};
 
 const activeBtn = (id) => {
+  removeActive()
   const clickedBtn = document.getElementById(`category-btn-${id}`);
   clickedBtn.classList.add("active-category-btn");
 };
 
+// display APIs
+
 const displayCategory = (categories) => {
+  console.log(categories)
   const categoryContainer = document.getElementById("categories");
   // categoryContainer.innerHTML = "";
   for (let category of categories) {
@@ -87,7 +96,7 @@ const displayCategoryCards = (plants) => {
                 </div>
                 <div class="card-actions">
                   <button
-                    class="btn bg-[#15803D] text-white w-full rounded-full"
+                    class="btn add-to-cart-btn bg-[#15803D] text-white w-full rounded-full"
                   >
                     Add to Cart
                   </button>
@@ -114,7 +123,7 @@ const displayAllTrees = (plants) => {
                 />
               </figure>
               <div class="card-body">
-                <h2 class="card-title" onclick="loadPlantsDetail(${
+                <h2 id="${plant.id}" class="card-title" onclick="loadPlantsDetail(${
                   plant.id
                 })">${plant.name}</h2>
                 <p>${[plant.description]}</p>
@@ -135,9 +144,45 @@ const displayAllTrees = (plants) => {
             </div>
     `;
     cardsContainer.append(card);
-    manageLoadingSpiner(false);
   }
+  manageLoadingSpiner(false);
 };
+
+// Add to cart btn
+let myCart = [];
+const cartItemsContainer = document.getElementById("cart-items");
+const shopCardContainer = document.getElementById("shop-card-container").addEventListener('click',(e)=>{
+  // console.log(e.target.innerText)
+  if (e.target.innerText == "Add to Cart") {
+    // console.log("BTN clicked")
+    // console.log(e.target.parentNode.parentNode.children[0].id)
+    const treeName = e.target.parentNode.parentNode.children[0].innerText;
+    const id = e.target.parentNode.parentNode.children[0].id;
+    myCart.push({
+      treeName: treeName,
+      id : id
+    })
+    displayCartItems(myCart);
+  }
+});
+const displayCartItems = (myCart) => {
+      // console.log(myCart);
+      cartItemsContainer.innerHTML = ""
+      myCart.forEach(myCart =>{
+        cartItemsContainer.innerHTML += `
+        <div
+                class="flex justify-between items-center bg-[#F0FDF4] rounded-lg px-3 py-2 my-2"
+              >
+                <div>
+                  <h6 class="font-semibold">${myCart.treeName}</h6>
+                  <p class="text-[#1F2937]">৳500 x 1</p>
+                </div>
+                <img class="size-4" src="./assets/delete.svg" alt="delete" />
+              </div>
+        `;
+      })
+};
+// display Modal
 
 const openModal = (detail) => {
   const modalContenter = document.getElementById("modal-container");
@@ -160,6 +205,8 @@ const openModal = (detail) => {
   `;
   document.getElementById("my_modal_5").showModal();
 };
+
+// function call
 
 loadCategory();
 loadAllTrees();
