@@ -49,7 +49,7 @@ const removeActive = () => {
 };
 
 const activeBtn = (id) => {
-  removeActive()
+  removeActive();
   const clickedBtn = document.getElementById(`category-btn-${id}`);
   clickedBtn.classList.add("active-category-btn");
 };
@@ -123,9 +123,11 @@ const displayAllTrees = (plants) => {
                 />
               </figure>
               <div class="card-body">
-                <h2 id="${plant.id}" class="card-title" onclick="loadPlantsDetail(${
+                <h2 id="${
                   plant.id
-                })">${plant.name}</h2>
+                }" class="card-title" onclick="loadPlantsDetail(${plant.id})">${
+      plant.name
+    }</h2>
                 <p>${[plant.description]}</p>
                 <div class="w-full flex justify-between items-center">
                   <h6 class="bg-[#DCFCE7] text-[#15803D] px-3 py-1 rounded-full">${
@@ -151,27 +153,31 @@ const displayAllTrees = (plants) => {
 // Add to cart btn
 let myCart = [];
 const cartItemsContainer = document.getElementById("cart-items");
-const shopCardContainer = document.getElementById("shop-card-container").addEventListener('click',(e)=>{
-  // console.log(e.target.innerText)
-  if (e.target.innerText == "Add to Cart") {
-    // console.log("BTN clicked")
-    // console.log(e.target.parentNode.parentNode.children[2].children[1].innerText);
-    const treeName = e.target.parentNode.parentNode.children[0].innerText;
-    const id = e.target.parentNode.parentNode.children[0].id;
-    const price = e.target.parentNode.parentNode.children[2].children[1].innerText;
-    myCart.push({
-      treeName: treeName,
-      id : id,
-      price : price
-    })
-    displayCartItems(myCart);
-  }
-});
+const shopCardContainer = document
+  .getElementById("shop-card-container")
+  .addEventListener("click", (e) => {
+    // console.log(e.target.innerText)
+    if (e.target.innerText == "Add to Cart") {
+      // console.log("BTN clicked")
+      // console.log(e.target.parentNode.parentNode.children[2].children[1].innerText);
+      const treeName = e.target.parentNode.parentNode.children[0].innerText;
+      const id = e.target.parentNode.parentNode.children[0].id;
+      const price =
+        e.target.parentNode.parentNode.children[2].children[1].innerText;
+      myCart.push({
+        treeName: treeName,
+        id: id,
+        price: price,
+      });
+      displayCartItems(myCart);
+      totalPriceCalculator(myCart)
+    }
+  });
 const displayCartItems = (myCart) => {
-      // console.log(myCart);
-      cartItemsContainer.innerHTML = ""
-      myCart.forEach(myCart =>{
-        cartItemsContainer.innerHTML += `
+  // console.log(myCart);
+  cartItemsContainer.innerHTML = "";
+  myCart.forEach((myCart) => {
+    cartItemsContainer.innerHTML += `
         <div
                 class="flex justify-between items-center bg-[#F0FDF4] rounded-lg px-3 py-2 my-2"
               >
@@ -182,17 +188,27 @@ const displayCartItems = (myCart) => {
                 <img onClick="deleteFromCart(${myCart.id})" class="size-4" src="./assets/delete.svg" alt="delete" />
               </div>
         `;
-      })
+  });
 };
 
-const deleteFromCart = (itemsID) =>{
-  console.log(myCart)
+const deleteFromCart = (itemsID) => {
+  console.log(myCart);
   const filteredMyCart = myCart.filter((items) => items.id !== String(itemsID));
   myCart = filteredMyCart;
-  displayCartItems(myCart)
-  console.log(myCart)
+  displayCartItems(myCart);
+  console.log(myCart);
+};
 
+const totalPriceCalculator = (items) => {
+  let totalPriceNum = 0;
+  const totalPrice = document.getElementById("total-price");
+for(let item of items){
+  const itemPrice = Number(item.price);
+  totalPriceNum += itemPrice;
 }
+totalPrice.innerText = `${totalPriceNum}`
+};
+
 // display Modal
 
 const openModal = (detail) => {

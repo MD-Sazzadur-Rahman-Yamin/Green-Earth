@@ -24,3 +24,9 @@ body{
   background-color: #15803D;
   color: white;
 }
+
+@media screen and (max-width : 48rem) {
+  #shop-section{
+    flex-direction: column;
+  }
+}
