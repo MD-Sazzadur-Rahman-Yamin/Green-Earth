@@ -1,3 +1,13 @@
+const manageLoadingSpiner = (status) => {
+  if (status == true) {
+    document.getElementById("loading-spiner").classList.remove("hidden");
+    document.getElementById("shop-card-container").classList.add("hidden");
+  } else {
+    document.getElementById("loading-spiner").classList.add("hidden");
+    document.getElementById("shop-card-container").classList.remove("hidden");
+  }
+};
+
 const loadCategory = () => {
   const url = "https://openapi.programming-hero.com/api/categories";
   fetch(url)
@@ -15,6 +25,7 @@ const loadCategoryCards = (id) => {
     });
 };
 const loadAllTrees = () => {
+  manageLoadingSpiner(true);
   const url = "https://openapi.programming-hero.com/api/plants";
   fetch(url)
     .then((res) => res.json())
@@ -64,9 +75,9 @@ const displayCategoryCards = (plants) => {
                 />
               </figure>
               <div class="card-body">
-                <h2 class="card-title" onclick="loadPlantsDetail(${plant.id})">${
-                  plant.name
-                }</h2>
+                <h2 class="card-title" onclick="loadPlantsDetail(${
+                  plant.id
+                })">${plant.name}</h2>
                 <p>${[plant.description]}</p>
                 <div class="w-full flex justify-between items-center">
                   <h6 class="bg-[#DCFCE7] text-[#15803D] px-3 py-1 rounded-full">${
@@ -124,6 +135,7 @@ const displayAllTrees = (plants) => {
             </div>
     `;
     cardsContainer.append(card);
+    manageLoadingSpiner(false);
   }
 };
 

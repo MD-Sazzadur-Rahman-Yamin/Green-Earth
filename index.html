@@ -94,9 +94,13 @@
         <div id="shop-section" class="max-w-screen-2xl mx-auto">
           <div id="category-container">
             <h3 class="font-semibold text-xl">Categories</h3>
-            <div id="categories">
-              <!-- <button class="btn w-full text-left bg-transparent text-[#1F2937] hover:bg-[#15803D] hover:text-white">All Trees</button> -->
-            </div>
+            <div id="categories"></div>
+          </div>
+          <div
+            id="loading-spiner"
+            class="flex justify-center items-center hidden"
+          >
+            <span class="loading loading-spinner loading-xl"></span>
           </div>
           <div id="shop-card-container" class="grid grid-cols-3 gap-4"></div>
           <div></div>
@@ -194,9 +198,7 @@
       <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
       <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
-          <div id="modal-container">
-            
-          </div>
+          <div id="modal-container"></div>
           <div class="modal-action">
             <form method="dialog">
               <!-- if there is a button in form, it will close the modal -->
